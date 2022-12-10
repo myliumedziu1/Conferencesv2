@@ -20,6 +20,12 @@
     </div>
 
     <div class="row mb-3">
+        <label for='address' class="col-sm2 col-form-label"> Address </label>
+        <textarea type="text" id='address' class="form-control" name="address"> </textarea>
+    </div>
+
+
+    <div class="row mb-3">
         <button class="btn btn-primary" type="submit">Create</button>
 
     </div>

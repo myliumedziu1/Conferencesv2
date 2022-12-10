@@ -24,8 +24,10 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'header' =>['required', 'string'],
-            'article' => ['required' , 'string'],
+            'header' => 'required|max:255',
+            'article'  => 'required',
+            'eventdate' => 'required|date',
+            'address' =>'required'
         ];
     }
 }

@@ -15,7 +15,11 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('events', EventListController::class);
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::resource('events', EventListController::class);
+});
+
 
 
 Route::get('/', [PageController::class, 'index']);
@@ -25,7 +29,7 @@ Route::get('/submit', function () {
 });
 
 Route::get('/content', function () {
-    return view('events');
+    return view('welcome2');
 });
 
 Route::post('/submit',function (){

@@ -22,6 +22,7 @@
             <th>Title</th>
             <th>Body</th>
             <th>Event date</th>
+            <th>Address</th>
             <th>Created At</th>
             <th></th>
             </thead>
@@ -34,6 +35,7 @@
                     <th>{{ $event->id }}</th>
                     <td>{{ $event->header }}</td>
                     <td>{{ substr($event->article, 0, 50) }}{{ strlen($event->articles) > 50 ? "..." : "" }}</td>
+                    <td>{{ $event->address }}</td>
                     <td>{{ date('M j, Y', strtotime($event->eventdate)) }}</td>
                     <td>{{ date('M j, Y', strtotime($event->created_at)) }}</td>
                     <td><a href="{{ route('events.show', $event->id) }}" class="btn btn-default btn-sm">View</a> <a href="{{ route('events.edit', $event->id) }}" class="btn btn-default btn-sm">Edit</a></td>

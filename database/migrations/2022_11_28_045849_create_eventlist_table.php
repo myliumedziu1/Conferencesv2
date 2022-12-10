@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('header');
             $table->text('article');
             $table->date('eventdate');
+            $table->text('address');
             $table->timestamps();
         });
     }

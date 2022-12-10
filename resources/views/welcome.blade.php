@@ -1,7 +1,5 @@
-
 @extends('layouts.app')
-    @include('layouts.navcustom2')
-
+@include('layouts.navcustom2')
 
 <!doctype html>
 <html lang="en">
@@ -23,19 +21,28 @@
     </div>
 
     <div class="container">
+        @csrf
         @foreach($events as $event)
-        <div class="card">
-            <div class="card-img-top">
-                <a href="#">
+        <div class="card-img-top ">
+            <div class="card">
                     <img src="https://techzity.com/app/uploads/2022/04/tech-zity-event-spaces.jpg">
-                </a>
                 <h2>{{$event->header}}</h2>
                 <p><br>{{ substr($event->article, 0, 20) }}{{ strlen($event->articles) > 20 ? "..." : "" }}</p>
+                <p><br> {{$event->address}}</p>
                 <p><br> {{$event->eventdate}}</p>
-                <button class="btn btn-light" href="/submit"> View</button>
+                <a href="/submit">
+                <button class="btn btn-secondary" > Register </button>
+                    </a>
+                @if (Auth::check())
+                    <a href="{{route('events.index')}}">
+                        <button class="btn btn-primary" type="button"> Edit </button>
+                @else
+
+                @endif
             </div>
     @endforeach
         </div>
+    </div>
 </main>
 
 </body>

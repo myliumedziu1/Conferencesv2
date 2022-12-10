@@ -1,7 +1,7 @@
-
+@extends ('layouts.app')
 <div class="row">
     <div class="row">
-        {!! Form::model($post, ['route' => ['events.update', $event->id]]) !!}
+        {!! Form::model($event, ['route' => ['events.update', $event->id]]) !!}
         <div class="col-md-8">article
             {{ Form::label('header', 'header:') }}
             {{ Form::text('header', null, ["class" => 'form-control input-lg']) }}
@@ -9,8 +9,11 @@
             {{ Form::label('article', "article:", ['class' => 'form-spacing-top']) }}
             {{ Form::textarea('article', null, ['class' => 'form-control']) }}
 
-         :   {{ Form::label('eventdate', "eventdate:", ['class' => 'form-spacing-top']) }}
+            {{ Form::label('eventdate', "eventdate:", ['class' => 'form-spacing-top']) }}
             {{ Form::textarea('eventdate', null, ['class' => 'form-control']) }}
+
+            {{ Form::label('address', "address:", ['class' => 'form-spacing-top']) }}
+            {{ Form::textarea('address', null, ['class' => 'form-control']) }}
         </div>
 
         <div class="col-md-4">
@@ -27,10 +30,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Html::linkRoute('posts.show', 'Cancel', array($event->id), array('class' => 'btn btn-danger btn-block')) !!}
+                        {!! Html::linkRoute('events.index', 'Cancel', array($event->id), array('class' => 'btn btn-danger btn-block')) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Html::linkRoute('posts.update', 'Save Changes', array($event->id), array('class' => 'btn btn-success btn-block')) !!}
+                        {!! Html::linkRoute('events.update', 'Save Changes', array($event->id), array('class' => 'btn btn-success btn-block')) !!}
                     </div>
                 </div>
 

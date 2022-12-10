@@ -40,8 +40,9 @@ class EventListController extends Controller
     {
         $this->validate($request, array(
             'header' => 'required|max:255',
-            'article'  => 'required',
-            'eventdate' => 'required|date'
+            'article'  => 'required|min:20',
+            'eventdate' => 'required|date',
+            'address' =>'required|min:5'
         ));
 
         // store in the database
@@ -50,6 +51,7 @@ class EventListController extends Controller
         $event->header = $request->header;
         $event->article = $request->article;
         $event->eventdate = $request->eventdate;
+        $event->address = $request->address;
         $event->save();
 
         return redirect()->route('events.show', $event->id);
@@ -91,7 +93,21 @@ class EventListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+            'header' => 'required|max:255',
+            'article'  => 'required|min:20',
+            'eventdate' => 'required|date',
+            'address' => 'required|min:5',
+        ));
+        $event = EventList::find($id);
+
+        $event->header = $request->header;
+        $event->article = $request->article;
+        $event->eventdate = $request->eventdate;
+        $event->address = $request->address;
+        $event->save();
+
+        return redirect('events.index')->withEvent($event);
     }
 
     /**
@@ -102,6 +118,9 @@ class EventListController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $event= EventList::find($id);
+       $event->delete();
+
+       return redirect()->route('events.index');
     }
 }
