@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
     @include('layouts.navcustom2')
 
@@ -20,3 +21,21 @@
             <a class="btn btn-outline-secondary" href="#">Check it out</a>
         </div>
     </div>
+
+    <div class="container">
+        @foreach($events as $event)
+        <div class="card">
+            <div class="card-img-top">
+                <a href="#">
+                    <img src="https://techzity.com/app/uploads/2022/04/tech-zity-event-spaces.jpg">
+                </a>
+                <h2>{{$event->header}}</h2>
+                <p><br>{{ substr($event->article, 0, 20) }}{{ strlen($event->articles) > 20 ? "..." : "" }}</p>
+                <p><br> {{$event->eventdate}}</p>
+                <button class="btn btn-light" href="/submit"> View</button>
+            </div>
+    @endforeach
+        </div>
+</main>
+
+</body>

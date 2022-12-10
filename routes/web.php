@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\conferences;
 use App\Models\EventList;
 use App\Http\Controllers\EventListController;
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,7 @@ use App\Http\Controllers\EventListController;
 Route::resource('events', EventListController::class);
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index']);
 
 Route::get('/submit', function () {
     return view('form');
