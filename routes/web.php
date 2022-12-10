@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\conferences;
+use App\Models\EventList;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,23 +22,33 @@ Route::get('/submit', function () {
     return view('form');
 });
 
-Route::get('/testas', function () {
-    return view('testas');
+Route::get('/content', function () {
+    return view('events');
 });
 
 Route::post('/submit',function (){
    $article = new Conferences();
-   $article->name1 = request('name1');
+   $article->name = request('name');
     $article->surname = request('surname');
    $article->email = request('email');
    $article->phone = request('phone');
    $article->save();
 });
 
+Route::post('/create',function (){
+    $article = new EventList();
+    $article->header = request('header');
+    $article->summary = request('summary');
+    $article->article = request('article');
+    $article->date = request('date');
+    $article->save();
+});
 
-Route::get('/panele', function () {
-    return view('adminpanel');
-})->middleware(['auth'])->name('adminpanel');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
 
 Route::get('/create', function () {
     return view('create');
@@ -47,9 +58,8 @@ Route::get('/edit', function () {
     return view('edit');
 })->middleware(['auth'])->name('edit');
 
+
+
 require __DIR__.'/auth.php';
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});

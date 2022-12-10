@@ -6,16 +6,16 @@
 <form action="/submit" method="POST" class="row g-3">
     @csrf
     <div class="row mb-3">
-        <label for="name2" class="col-sm-2 col-form-label">First name</label>
-        <input type="text" class="form-control" id="name2"  required>
+        <label for="name" class="col-sm-2 col-form-label">First name</label>
+        <input type="text" class="form-control" id="name"  required>
     </div>
     <div class="row mb-3">
         <label for="surname" class="col-sm-2 col-form-label">Last name</label>
         <input type="text" class="form-control" id="surname"  required>
     </div>
     <div class="row mb-3">
-        <label for="email1" class="col-sm-2 col-form-label">Email</label>
-            <input type="email" class="form-control" id="email1"  aria-describedby="Email" required>
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
 
     </div>
     <div class="row mb-3">

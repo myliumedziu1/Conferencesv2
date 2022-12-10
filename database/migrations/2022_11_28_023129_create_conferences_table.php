@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('conferences', function (Blueprint $table) {
             $table->id();
-            $table->string('name2');
+            $table->string('name');
             $table->string('surname');
-            $table->string('email1');
+            $table->string('email');
             $table->string('phone');
             $table->timestamps();
         });

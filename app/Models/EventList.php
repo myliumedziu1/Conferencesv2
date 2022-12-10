@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class EventList extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        'header',
+        'summary',
+        'article',
+        'date'
+
+    ];
 }
