@@ -25,9 +25,7 @@ class StoreEventRequest extends FormRequest
     {
         return [
             'header' =>['required', 'string'],
-            'summary' => ['required', 'string'],
             'article' => ['required' , 'string'],
-            'date' => ['date']
         ];
     }
 }

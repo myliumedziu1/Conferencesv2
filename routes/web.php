@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\conferences;
 use App\Models\EventList;
+use App\Http\Controllers\EventListController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,8 @@ use App\Models\EventList;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('events', EventListController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,14 +38,6 @@ Route::post('/submit',function (){
    $article->save();
 });
 
-Route::post('/create',function (){
-    $article = new EventList();
-    $article->header = request('header');
-    $article->summary = request('summary');
-    $article->article = request('article');
-    $article->date = request('date');
-    $article->save();
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -57,7 +52,6 @@ Route::get('/create', function () {
 Route::get('/edit', function () {
     return view('edit');
 })->middleware(['auth'])->name('edit');
-
 
 
 require __DIR__.'/auth.php';

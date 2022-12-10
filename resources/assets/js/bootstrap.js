@@ -14,6 +14,7 @@ require('jquery');
 require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min');
 require('bootstrap')
 require('fullcalendar')
+require('tinymce/tinymce.min')
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

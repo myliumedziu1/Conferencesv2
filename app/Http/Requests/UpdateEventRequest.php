@@ -25,9 +25,7 @@ class UpdateEventRequest extends FormRequest
     {
         return [
             'header' =>['required', 'string'],
-            'summary' => ['required', 'string'],
             'article' => ['required' , 'string'],
-            'date' => ['date']
         ];
     }
 }

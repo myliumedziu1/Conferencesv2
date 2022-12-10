@@ -30,6 +30,7 @@
         "fullcalendar": "^5.11.3",
         "jquery": "^3.6.1",
         "node-sass": "^6.0.1",
-        "spectre.css": "^0.5.9"
+        "spectre.css": "^0.5.9",
+        "tinymce": "^6.3.1"
     }
 }

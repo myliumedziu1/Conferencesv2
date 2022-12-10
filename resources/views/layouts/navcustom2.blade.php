@@ -25,7 +25,7 @@
         <a class="py-2 d-none d-md-inline-block" href="#">Lorem Ipsum</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Lorem Ipsum</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Lorem Ipsum</a>
-        <a class="py-2 d-none d-md-inline-block" href="/create">Create event</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{route('events.create')}}">Create event</a>
         @if (Route::has('login'))
             <div>
                 @auth
