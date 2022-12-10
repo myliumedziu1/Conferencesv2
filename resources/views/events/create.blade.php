@@ -15,6 +15,11 @@
     </div>
 
     <div class="row mb-3">
+        <label for="eventdate" class="col-sm-2 col-form-label">Event Date</label>
+        <input type="date" class="form-control" id="eventdate" name="eventdate">
+    </div>
+
+    <div class="row mb-3">
         <button class="btn btn-primary" type="submit">Create</button>
 
     </div>

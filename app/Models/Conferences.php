@@ -9,10 +9,6 @@ class Conferences extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'surname',
-        'email',
-        'phone',
-    ];
+    protected $table = "conferences";
+
 }

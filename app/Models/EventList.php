@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventList extends Model
 {
-    protected $table = 'eventlist';
+    protected $table = 'events';
 
 }

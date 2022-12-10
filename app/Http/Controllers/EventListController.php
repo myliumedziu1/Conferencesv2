@@ -17,7 +17,7 @@ class EventListController extends Controller
     public function index()
     {
        $events = EventList::all();
-       return view('posts.index')->withEvents($events);
+       return view('events.index')->withEvents($events);
     }
 
     /**
@@ -40,7 +40,8 @@ class EventListController extends Controller
     {
         $this->validate($request, array(
             'header' => 'required|max:255',
-            'article'  => 'required'
+            'article'  => 'required',
+            'eventdate' => 'required|date'
         ));
 
         // store in the database
@@ -48,7 +49,7 @@ class EventListController extends Controller
 
         $event->header = $request->header;
         $event->article = $request->article;
-
+        $event->eventdate = $request->eventdate;
         $event->save();
 
         return redirect()->route('events.show', $event->id);
@@ -77,7 +78,7 @@ class EventListController extends Controller
     public function edit($id)
     {
         $event = EventList::find($id);
-        return view('events.edit')->withPost($event);
+        return view('events.edit')->withEvent($event);
 
     }
 
