@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\ActorController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\TrupeController;
 use Illuminate\Support\Facades\Route;
-use App\Models\conferences;
-use App\Models\EventList;
-use App\Http\Controllers\EventListController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RepertoireController;
+use App\Http\Controllers\RepertuarasController;
+use App\Http\Controllers\RenginiaiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,48 +19,33 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'auth'], function()
-{
-    Route::resource('events', EventListController::class);
-});
+
+
+Route::resource('repertoire', RepertoireController::class);
+
 
 
 
 Route::get('/', [PageController::class, 'index']);
+Route::get('/trupe',[TrupeController::class,'index'] ) ->name('trupe.index');
 
-Route::get('/submit', function () {
-    return view('form');
-});
+Route::get('/repertuaras', [App\Http\Controllers\RepertuarasController::class, 'index'])->name('repertuaras.index');
+Route::get('/repertuaras/{repertoire:slug}', [App\Http\Controllers\RepertuarasController::class, 'show'])->name('repertuaras.show');
+Route::get('/repertuaras/{slug}', [RepertuarasController::class, 'show'])->name('repertuaras.show');
 
-Route::get('/content', function () {
-    return view('welcome2');
-});
+Route::resource('events', EventController::class);
 
-Route::post('/submit',function (){
-   $article = new Conferences();
-   $article->name = request('name');
-    $article->surname = request('surname');
-   $article->email = request('email');
-   $article->phone = request('phone');
-   $article->save();
-});
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('events/{id}', [EventController::class, 'show'])->name('events.show');
 
 
 
-Route::get('/create', function () {
-    return view('create');
-})->middleware(['auth'])->name('create');
+Route::resource('actors', ActorController::class);
 
-Route::get('/edit', function () {
-    return view('edit');
-})->middleware(['auth'])->name('edit');
+Route::get('/renginiai', [RenginiaiController::class,'index'])->name('renginiai.index');
 
 
 require __DIR__.'/auth.php';
+
+
 
 

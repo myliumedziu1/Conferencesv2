@@ -2,10 +2,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~bootstrap/scss/bootstrap";
-@import "essentials";
-@import "templates";
-@import "cards";
-@import "tables";
+@import 'node_modules/bootstrap/scss/bootstrap';
+@tailwind variants;
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import "~select2/dist/css/select2.min.css";
+@import '~quill/dist/quill.snow.css';
 
+@import "base/reset";
+@import "base/typography";
 
+@import "components/actor-card";
+@import "components/buttons";
+@import "components/forms";
+@import "components/navigation";
+
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/sidebar";
+
+@import "pages/home";
+@import "pages/repertuare";
+@import "pages/event";
+
+@import "themes/admin-theme";
+@import "themes/theme";
+
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/select2";
+@import "utils/variables";

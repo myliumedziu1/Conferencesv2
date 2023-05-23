@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\AdminRoleSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,8 +13,11 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+
+        public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(CrudsPermissionSeeder::class);
+        $this->call(AdminRoleSeeder::class);
     }
+
 }

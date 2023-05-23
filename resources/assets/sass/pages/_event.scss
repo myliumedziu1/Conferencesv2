@@ -1,0 +1,69 @@
+.event-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 0 50px; /* Add left and right margins to the container */
+}
+
+.event-card {
+    flex: 0 0 calc(100% - 20px);
+    height: auto;
+    margin: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+
+    @media (min-width: 1440px) { /* Adjust this breakpoint */
+        flex: 0 0 320px;
+        height: 620px;
+        margin: 20px; /* Increase the left and right margins on each card */
+    }
+
+    @media (min-width: 768px) {
+        flex: 0 0 calc(320px - 20px);  // For medium-sized screens and up, each card should be 320px wide.
+        height: 620px; // This sets the height of the cards to 620px on medium-sized screens and up.
+    }
+    @media (min-width: 1280px) { /* Adjust this breakpoint to when the total width of 4 cards and their margins fits the viewport */
+        flex: 0 0 320px; /* Set the width to 320px */
+        height: 620px;
+    }
+
+    .event-card-image {
+        height: 200px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .event-card-content {
+        padding: 20px;
+        .event-card-title {
+            margin-bottom: 10px;
+        }
+        .event-card-details {
+            margin-bottom: 20px;
+            .event-card-date,
+            .event-card-location,
+            .event-card-type {
+                margin: 0;
+            }
+        }
+    }
+
+    .event-card-action {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        text-align: right;
+        a {
+            text-decoration: none;
+            color: #007bff;
+            &:hover {
+                color: #0056b3;
+            }
+        }
+    }
+}

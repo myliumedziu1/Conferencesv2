@@ -1,45 +1,19 @@
+window.$ = window.jQuery = require('jquery');
+window.Alpine = Alpine;
+Alpine.start();
+import Quill from 'quill';
+window.Quill = Quill
+
 import 'bootstrap';
 import 'fullcalendar/main';
 import Alpine from 'alpinejs';
-import tinymce from "tinymce";
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
-$(".card").hover(function() {
-        var vSrc =  $(this).find('iframe').data('video');
-        var video = $(this).find('iframe');
-        video.attr('src',vSrc);
-        setTimeout(function(){ player.unMute(); }, 1000);
-    },
-    function() {
-        $(this).find('iframe').attr('src','');
-    });
-
-$('.view').click(function(){
-    var el = $(this);
-
-    if(el.hasClass('series_lacasa') == true){
-        $('.episodes .episode').each(function(){
-            var toShow = $(this).data('lacasa');
-            $(this).css('background','url('+toShow+') no-repeat center/cover');
-        });
-    } else if (el.hasClass('series_got') == true) {
-        $('.episodes .episode').each(function(){
-            var toShow = $(this).data('got');
-            $(this).css('background','url('+toShow+') no-repeat center/cover');
-        });
-    }  else if (el.hasClass('series_vikings') == true) {
-        $('.episodes .episode').each(function(){
-            var toShow = $(this).data('vikings');
-            $(this).css('background','url('+toShow+') no-repeat center/cover');
-        });
-    }
-
-    $('.fullserie').addClass('active');
-});
-
-$('.fullserie .close').click(function(){
-    $('.fullserie').removeClass('active');
-});
+import $ from 'jquery';
+import 'select2';
+import './_jquerry.js';
+import './_select2.js';
+import './_image.js';
+import './_clock.js';
+require('./_sidebar.js');
+require('./_repertoirecards');
+require('./_quill');
+import ('./_header');

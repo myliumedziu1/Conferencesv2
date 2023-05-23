@@ -1,0 +1,19 @@
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.04);  // 4% opacity black
+    color: #000;  // changed text color to black
+    padding: 3px 0;  // even smaller padding
+    font-family: 'Lato', sans-serif;
+    text-align: center;  // centering the text
+    z-index: 999;
+
+    .footer-container {
+        .footer-section {
+            .footer-text {
+                font-size: 12px;  // smaller font size
+                margin: 0;  // removing margin to fit one line
+            }
+        }
+    }
+}

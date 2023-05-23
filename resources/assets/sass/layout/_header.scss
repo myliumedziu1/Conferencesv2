@@ -1,0 +1,71 @@
+.kt-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* changed to white */
+    height: 60px; /* reduced height by 20% */
+    color: #000; /* changed text color to black */
+
+    @media (max-width: 768px) {
+        height: 50px; /* adjust the height for mobile */
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-right: 20px;
+}
+
+li:last-child {
+    margin-right: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000; /* changed text color to black */
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    padding: 5px 10px;
+
+    @media (max-width: 768px) {
+        font-size: 16px; /* adjust the font size for mobile */
+    }
+}
+
+a:hover {
+    color: #565e64;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #000; /* changed color to black */
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}

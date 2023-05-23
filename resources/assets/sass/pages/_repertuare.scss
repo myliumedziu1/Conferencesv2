@@ -1,0 +1,65 @@
+#repertoire-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; // Adjust the top margin as needed
+    margin-bottom: 30px;
+}
+
+.repertoire-card {
+    box-sizing: border-box;
+    min-width: 25em;
+    max-width: 40em; // set this to your preferred width
+    margin: auto; // centers the card within the grid column
+    background-size: cover;
+    background-position: center;
+    min-height: 35em; // Set this to a value that looks good for your design
+    max-height: 45em; // This is a flexible unit that scales with the font size
+    height: 100%;
+    position: relative;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.card-link {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+}
+
+.card-hover-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    visibility: hidden;
+}
+
+.repertoire-card:hover {
+    transform: scale(1.05);
+    filter: grayscale(100%); // make the image grayscale
+
+    .card-hover-info {
+        transform: translateY(0);
+        visibility: visible;
+
+        p { // target the paragraph
+            font-weight: bold; // make the text bold
+        }
+    }
+}
+
+
+// Style for event name
+.event-name {
+    color: black;
+    margin-top: 10px;
+}
